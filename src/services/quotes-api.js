@@ -7,7 +7,7 @@ class QuotesApi {
 
     async getRandomQuote() {
         try {
-            const response = await fetch(`${this.#apiBaseUrl}/random`);
+            const response = await fetch(`${this.#apiBaseUrl}/random?minLength=100&maxLength=150`);
             if (!response.ok) {
                 throw new Error('Failed to load random quote');
             }

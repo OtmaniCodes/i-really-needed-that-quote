@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 body{
-  font-family: "Archivo", sans-serif;
+  font-family: "Lilita One", sans-serif;
   background-image: url('https://i.pinimg.com/originals/23/1f/1b/231f1bc7829ad3f12a7c965d066df03b.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -10,13 +10,19 @@ body{
 
 .App {
   text-align: center;
-  max-width: 1200px;
+  width: 1200px;
   margin: auto;
 }
 
 h1{
-  
+  font-size: 3rem;
+  font-weight: 300;
 }
+
+h3.sub_header{
+  color: rgba(0, 0, 0, 0.678);
+}
+
 
 .home{
   min-height: 100vh;
@@ -36,6 +42,29 @@ h1{
   margin-top: 20px;
 }
 
+.home .quote-card .options .option:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.home .quote-card .options .option .copied{
+  scale: 0.4;
+  opacity: 0;
+  animation: copied 0.2s forwards ease-in;
+}
+
+
+@keyframes copied {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }  
+}
+
 .home .quote-card .options .copy{
   margin-right: 10px;
 }
@@ -50,8 +79,8 @@ h1{
 
 .home .quote-card {
   position: relative;
-  width: 50vw;
-  height: 200px;
+  width: 40vw;
+  height: 300px;
   background-color: #f2f2f2;
   border-radius: 10px;
   display: flex;
@@ -63,7 +92,19 @@ h1{
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+.other-links{
+  justify-content: end;
+  align-items: center;
+  display: flex;
+}
 
+.other-links a.my-twitter{
+  margin: 0;
+  text-align: end;
+  color: rgb(0, 55, 92);
+  text-decoration: none!important;
+  margin-right: 15px;
+}
 
 .home .quote-card:hover {
   transform: scale(1.05);
@@ -78,6 +119,7 @@ h1{
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
   justify-content: space-between;
   flex-direction: column;
   background-color: #f2f2f2;
@@ -99,7 +141,14 @@ h1{
   text-align: end;
 }
 
-.home .quote-card:hover h1 {
+.home .quote-card .card__initial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.home .quote-card:hover .card__initial {
   scale: 0;
 }
 
@@ -107,16 +156,31 @@ h1{
 
   font-size: 24px;
   color: #333;
-  font-weight: 700;  
+  font-weight: 700; 
+  text-align: start;
+  line-height: 1.3; 
 }
 
 
 
 
-
+@media only screen and (max-width: 1201px) {
+  .App {
+    width: unset;
+    max-width: 1200px;
+  }
+}
 
 
 @media only screen and (max-width: 720px) {
+
+
+
+
+  h1{
+    font-size: 1.6rem;
+  }
+  
   .home .quote-card{
     width: 80vw;
   }
